@@ -75,7 +75,7 @@ server.post('/actions', async (req, res) => {
             res.status(400).json({ message: 'missing action data'})
         }
         
-    } catch (error) {
+    } catch (err) {
         res.status(500).json({ message: 'could not create new action' })
     }
 })
