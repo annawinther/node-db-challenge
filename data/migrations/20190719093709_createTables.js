@@ -19,12 +19,11 @@ exports.up = function(knex) {
             .notNullable()
             .references('id')
             .inTable('projects')
-            .onDelete('RESTRICT')
+            .onDelete('CASCADE')
             .onUpdate('CASCADE');
         table.boolean('completed')
             .notNullable();
     })
-
 };
 
 exports.down = function(knex) {
