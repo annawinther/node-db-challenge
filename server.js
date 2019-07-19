@@ -19,10 +19,10 @@ server.get('/projects', async (req, res) => {
       }
 })
 
-server.post('/', async (req, res) => {
+server.post('/projects', async (req, res) => {
     try {
         const project = await db.addPost(req.body);
-        res.status(201).json({project})
+        res.status(201).json(project)
     } catch (err) {
         res.status(500).json({ error: 'could not create new post' })
     }

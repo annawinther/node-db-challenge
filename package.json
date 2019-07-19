@@ -21,6 +21,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "knex": "^0.19.0",
+    "router-express": "^1.5.2",
     "sqlite3": "^4.0.9"
   },
   "devDependencies": {
