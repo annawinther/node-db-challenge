@@ -37,10 +37,10 @@ server.get('/actions', async (req, res) => {
 server.get('/projects/:id/actions', async (req, res) => {
     try {
         const projectId = req.params.id;
-        const action = await db.getProjectAction(projectId);
-        res.json(action)
+        const actions = await db.getProjectAction(projectId);
+        res.json(actions)
     } catch (err) {
-        res.status(500).json({ message: 'could not get actions'})
+        res.status(500).json({ message: 'could not get actions for this project' })
     }
 })
 

@@ -15,13 +15,14 @@ function getProjectAction(projectId) {
 // from projects
 // join actions on projects.id = actions.project_id
     return db('projects')
-      .join('action', 'projects.id', 'actions.projects_id')
-      .select('name', 'description')
+      .join('actions', 'projects.id', 'actions.project_id')
+      .select('name', 'projects.description')
       .where('project_id', projectId);
   }
 
 function getProjectById(id){
-    return db('projects').where({ id })
+    return db('projects')
+        .where({ id })
 }
 
 function getActions(){
