@@ -20,7 +20,6 @@ exports.up = function(knex) {
             .references('id')
             .inTable('projects')
             .onDelete('CASCADE')
-            .onUpdate('CASCADE');
         table.boolean('completed')
             .notNullable();
     })

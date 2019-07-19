@@ -15,7 +15,7 @@ function getProjectAction(projectId) {
 // join actions on projects.id = actions.project_id
     return db('projects')
       .join('actions', 'projects.id', 'actions.project_id')
-      .select('actions.id', 'name', 'projects.description', 'notes', 'projects.completed', 'project_id')
+      .select('actions.id', 'actions.description', 'notes', 'actions.completed', 'project_id')
       .where('project_id', projectId);
   }
 
