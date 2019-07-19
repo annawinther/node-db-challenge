@@ -46,7 +46,7 @@ foreign key
 
 1. What do we need in order to have a _many to many_ relationship between two tables.
 
-With a _many-to-many_ relationship its common to have a separate table that contains the foreign keys to connect the columns with the table it refers to. It can be called an intermediate table.
+With a _many-to-many_ relationship its common to have a separate table that contains the foreign keys to connect the columns, with the table it refers to. It can be called an intermediate table.
 
 ## Project Set Up
 

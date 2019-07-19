@@ -1,28 +1,29 @@
 const knex = require('knex');
 const db = knex(require('../knexfile').development);
 
-//POST for projetcs
-// insert into projects ('name', 'description', 'completed')
-//values ('hello', 'this is hello', 'no')
 function getProjects(){
     return db('projects')
 }
+
 function getProjectAction(projectId) {
 // select 
 //      description,
 //      name, 
-//      notes 
+//      notes, 
+//      etc
 // from projects
 // join actions on projects.id = actions.project_id
     return db('projects')
       .join('actions', 'projects.id', 'actions.project_id')
-      .select('name', 'projects.description')
+      .select('actions.id', 'name', 'projects.description', 'notes', 'projects.completed', 'project_id')
       .where('project_id', projectId);
   }
 
 function getProjectById(id){
     return db('projects')
-        .where({ id })
+        // .join('actions', 'projects.id', 'actions.project_id')
+        // .select('actions*')
+        .where({id})
 }
 
 function getActions(){
@@ -30,6 +31,9 @@ function getActions(){
 }
 
 function addPost({ name, description, completed }){
+    //POST for projetcs
+    // insert into projects ('name', 'description', 'completed')
+    //values ('hello', 'this is hello', 'no')
     return db('projects')
         .insert({ name, description, completed })
         .then(ids => ({ id: ids[0] }));
