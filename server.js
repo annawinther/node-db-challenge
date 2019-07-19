@@ -1,44 +1,45 @@
 const express = require('express');
 const db = require('./data/dbQueries');
-// const db = require('./data/dbQueries');
-const projectRouter = require('./routes/project-router');
-const actionRouter = require('./routes/actions-routes');
+// const projectRouter = require('./routes/project-router');
+// const actionRouter = require('./routes/actions-routes');
 
 const server = express();
 
-server.use('/api/projects', projectRouter);
-server.use('/api/actions', actionRouter);
+// server.use('/api/projects', projectRouter);
+// server.use('/api/actions', actionRouter);
 
 server.use(express.json());
 
 server.get('/', (req, res) => {
     res.send("hello world")
 })
-// server.get('/projects', async (req, res) => {
-//     try {
-//         const projects = await db.getProjects();
-//         res.json(projects);
-//       } catch (err) {
-//         res.status(500).json({ message: 'Failed to get the recipes' });
-//       }
-// })
-// server.get('/projects/:id', async (req, res) =>{
-//     try {
-//         const projectId = req.params.id;
-//         const project = await db.getProjectById(projectId);
-//         res.status(200).json(project)
-//     } catch (err) {
-//         res.status(500).json({ message: 'could not get project with that id'})
-//     }
-// })
-// server.get('/actions', async (req, res) => {
-//     try {
-//         const actions = await db.getActions();
-//         res.json(actions);
-//       } catch (err) {
-//         res.status(500).json({ message: 'Failed to get the recipes' });
-//       }
-// })
+
+server.get('/projects', async (req, res) => {
+    try {
+        const projects = await db.getProjects();
+        res.json(projects);
+      } catch (err) {
+        res.status(500).json({ message: 'Failed to get the recipes' });
+      }
+})
+server.get('/projects/:id', async (req, res) =>{
+    try {
+        const projectId = req.params.id;
+        const project = await db.getProjectById(projectId);
+        res.status(200).json(project)
+    } catch (err) {
+        res.status(500).json({ message: 'could not get project with that id'})
+    }
+})
+server.get('/actions', async (req, res) => {
+    try {
+        const actions = await db.getActions();
+        res.json(actions);
+      } catch (err) {
+        res.status(500).json({ message: 'Failed to get the recipes' });
+      }
+})
+
 server.get('/projects/:id/actions', async (req, res) => {
     try {
         const projectId = req.params.id;
