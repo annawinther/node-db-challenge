@@ -33,9 +33,20 @@ This will be akin to the Web API that you built in the last sprint, only this ti
 Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 1. Explain the difference between `Relational Databases` and `SQL`.
+
+Relational Databases are the database software that manages everything, such as storage, querying or updating. It uses a relational model of data which means that if you want to work on it, you’ll need to learn its implementation language, the relational model theory etc. SQL is a language that typically is used to actually query the relational database, which makes it easier to interact with the database. RDB is therefore the system and SQL is the language used to interact with the system. 
+
 1. Why do tables need a `primary key`?
+
+Primary keys are used to ensure data in the specific column is unique. It is also a way of creating a relationship between tables, doing so by setting foreign keys which points to the primary key on one table and can connect those tables together. The primary key also ensures that the data that can be inserted in the table that has the foreign key can only be information that uniquely exists in the primary key column. In addition, if a DELETE or UPDATE occurs, the action you specified will be undertaken to ensure data integrity and prevent data redundancy in your database.
+
 1. What is the name given to a table column that references the primary key on another table.
+
+foreign key
+
 1. What do we need in order to have a _many to many_ relationship between two tables.
+
+With a _many-to-many_ relationship its common to have a separate table that contains the foreign keys to connect the columns, with the table it refers to. It can be called an intermediate table.
 
 ## Project Set Up
 
